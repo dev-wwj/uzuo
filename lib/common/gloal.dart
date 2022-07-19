@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-
 final Color Color_Text_Normal = Color(0xFF0F0F0F);
 
 final Color Color_Text_Content = Color(0xFF999999);
@@ -22,3 +21,29 @@ InputDecoration _inputDecoration(String text) {
     border: InputBorder.none,
   );
 }
+
+extension SimpleContext on BuildContext {
+  double width() {
+    return MediaQuery.of(this).size.width;
+  }
+
+  double height() {
+    return MediaQuery.of(this).size.height;
+  }
+
+  double statusBarHeight() {
+    return MediaQuery.of(this).padding.top;
+  }
+
+  double bottomSafeMarge() {
+    return MediaQuery.of(this).padding.bottom;
+  }
+
+  double safeHeight() {
+    return height() -
+        statusBarHeight() -
+        bottomSafeMarge();
+  }
+}
+
+

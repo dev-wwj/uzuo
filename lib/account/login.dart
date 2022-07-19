@@ -3,20 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../common/style.dart';
 import '../common/regexp.dart';
-
-InputDecoration _inputDecoration(String text) {
-  return InputDecoration(
-    hintText: text,
-    hintStyle: TextStyle(fontSize: 16, color: Color_Text_Hint),
-    border: InputBorder.none,
-  );
-}
-
-final BoxDecoration BottomLineDecoration = BoxDecoration(
-    border: Border(bottom: BorderSide(width: 1, color: Color_Border_Line)));
-
-final BoxDecoration TopLineDecoration = BoxDecoration(
-    border: Border(top: BorderSide(width: 0.5, color: Color_Border_Line)));
+import '../common/decoration.dart';
+import '../account/profession.dart';
+import '../common/gloal.dart';
 
 final TextStyle _availableStyle =
     TextStyle(fontSize: 14, color: Color_Text_Normal);
@@ -58,8 +47,8 @@ class _LoginPageState extends State<LoginPage> {
         key: _formKey,
         child: SingleChildScrollView(
             child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          height: context.safeHeight(),
+          width: context.width(),
           padding: EdgeInsets.symmetric(horizontal: 15.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -68,7 +57,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 60,
               ),
               Container(
-                width: MediaQuery.of(context).size.width,
+                width: context.width(),
                 child: Text(
                   "登录后更精彩",
                   style: TextStyle(
@@ -85,7 +74,8 @@ class _LoginPageState extends State<LoginPage> {
                 child: TextFormField(
                   autovalidateMode: AutovalidateMode.always,
                   style: TextStyleTitle,
-                  decoration: _inputDecoration('请输入手机号'),
+                  decoration: WInputDecoration.inputDecoration(
+                      "请输入手机号", TextStyleHintNormal),
                   keyboardType: TextInputType.phone,
                   onChanged: (value) {
                     _phone = value;
@@ -107,7 +97,8 @@ class _LoginPageState extends State<LoginPage> {
                       child: TextFormField(
                         autovalidateMode: AutovalidateMode.always,
                         style: TextStyleTitle,
-                        decoration: _inputDecoration('请输入验证码'),
+                        decoration: WInputDecoration.inputDecoration(
+                            "请输入验证码", TextStyleHintNormal),
                         keyboardType: TextInputType.number,
                         onChanged: (value) {
                           _verifyCode = value;
@@ -187,8 +178,8 @@ class _LoginPageState extends State<LoginPage> {
                 height: 50,
               ),
               Container(
-                width: MediaQuery.of(context).size.width,
-                height: 45,
+                width: context.width(),
+                height: 50,
                 child: Opacity(
                     opacity: _loginEnable ? 1.0 : 0.3,
                     child: MaterialButton(
@@ -196,6 +187,10 @@ class _LoginPageState extends State<LoginPage> {
                         if (_loginEnable) {
                           //TODO: login
                         }
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ProfessionWidget()));
                       },
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -256,18 +251,24 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               Expanded(child: SizedBox()),
-              // Row(
-              //   children: [
-              //     Ink.image(image: '')
-              //   ],
-              //   mainAxisAlignment: MainAxisAlignment.center,
-              // )
+              SizedBox(
+                width: 60,
+                height: 60,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Image.asset('images/wechat.png'),
+                ),
+              ),
             ],
           ),
         )),
       ),
     );
   }
+
+  //阅读 用户协议 和 隐私政策
+  var rechText =
+      RichText(text: TextSpan(text: "阅读", style: TextStyleLittleContent));
 
   Padding buildTitle() {
     return Padding(
