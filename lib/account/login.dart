@@ -6,6 +6,7 @@ import '../common/regexp.dart';
 import '../common/decoration.dart';
 import '../account/profession.dart';
 import '../common/gloal.dart';
+import '../router.dart';
 
 final TextStyle _availableStyle =
     TextStyle(fontSize: 14, color: Color_Text_Normal);
@@ -255,7 +256,9 @@ class _LoginPageState extends State<LoginPage> {
                 width: 60,
                 height: 60,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    MyRouter.pushNoParams(context, MyRouter.container);
+                  },
                   icon: Image.asset('images/wechat.png'),
                 ),
               ),

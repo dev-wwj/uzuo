@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
+final Color Main_Color = Color(0xFFFFFFFF);
+
 final Color Color_Text_Normal = Color(0xFF0F0F0F);
 
 final Color Color_Text_Content = Color(0xFF999999);
@@ -13,6 +15,8 @@ final Color Color_Text_Hint = Color(0xFFBFBFBF);
 final Color Color_Border_Line = Color(0x0F0F0F00);
 
 final Color Color_Shadow_Gray = Color(0x0F0F0F00);
+
+final Color Color_Text_Bg = Color(0xFFF3F3F3);
 
 InputDecoration _inputDecoration(String text) {
   return InputDecoration(
@@ -45,5 +49,9 @@ extension SimpleContext on BuildContext {
         bottomSafeMarge();
   }
 }
-
+extension MString on String {
+  String locImage() {
+    return 'images/' + this + '.png';
+  }
+}
 
