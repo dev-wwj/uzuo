@@ -22,7 +22,7 @@ class _SearchBarState extends State<SearchBar> {
     return Card(
       margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       elevation: 0,
-      color: Color_Text_Bg,
+      color: Color_Content_Bg,
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20))),
       child: Container(
@@ -44,7 +44,7 @@ class _SearchBarState extends State<SearchBar> {
                 readOnly: widget.readOnly,
                 onTap: widget.onTap,
                 decoration: WInputDecoration.inputDecoration(
-                    "搜索设计类别/行业/用途", TextStyleHintNormal),
+                    "搜索设计类别/行业/用途", TextStyleHint),
               ))
             ],
           ),

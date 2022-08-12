@@ -103,7 +103,7 @@ class ProfessionCard extends StatelessWidget {
               height: 15,
               right: 22,
               top: 88,
-              child: Image.asset('images/arrow.png'),
+              child: Image.asset('arrow'.locImage()),
             )
           ],
         ),

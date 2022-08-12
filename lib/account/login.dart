@@ -1,27 +1,23 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:uzuo/account/login_wechat.dart';
 import '../common/style.dart';
 import '../common/regexp.dart';
 import '../common/decoration.dart';
 import '../account/profession.dart';
-import '../common/gloal.dart';
+import '../common/extension.dart';
 import '../router.dart';
-
-final TextStyle _availableStyle =
-    TextStyle(fontSize: 14, color: Color_Text_Normal);
-final TextStyle _unavailableStyle =
-    TextStyle(fontSize: 14, color: Color_Text_Unavailable);
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
   final int countdown = 60;
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  LoginPageState createState() => LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
 
   String? _phone;
@@ -32,13 +28,14 @@ class _LoginPageState extends State<LoginPage> {
   String _verifyStr = '获取验证码';
   bool _codeEnable = false;
   bool _showShadow = false;
-
   bool _loginEnable = false;
+  bool wxLoginEnable = false;
 
   @override
   void initState() {
     super.initState();
     _seconds = widget.countdown;
+    showWechatLogin();
   }
 
   @override
@@ -76,7 +73,7 @@ class _LoginPageState extends State<LoginPage> {
                   autovalidateMode: AutovalidateMode.always,
                   style: TextStyleTitle,
                   decoration: WInputDecoration.inputDecoration(
-                      "请输入手机号", TextStyleHintNormal),
+                      "请输入手机号", TextStyleHint),
                   keyboardType: TextInputType.phone,
                   onChanged: (value) {
                     _phone = value;
@@ -99,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                         autovalidateMode: AutovalidateMode.always,
                         style: TextStyleTitle,
                         decoration: WInputDecoration.inputDecoration(
-                            "请输入验证码", TextStyleHintNormal),
+                            "请输入验证码", TextStyleHint),
                         keyboardType: TextInputType.number,
                         onChanged: (value) {
                           _verifyCode = value;
@@ -152,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
                             border: Border.all(
                                 width: 1.0,
                                 color: _codeEnable
-                                    ? Color_Text_Normal
+                                    ? Color_U_Black
                                     : Color_Text_Unavailable),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(5.0)),
@@ -168,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: Text(
                           _verifyStr,
                           style:
-                              _codeEnable ? _availableStyle : _unavailableStyle,
+                              _codeEnable ? TextStyleMediumTitle : TextStyleMediumContent,
                         ),
                       ),
                     ),
@@ -221,7 +218,7 @@ class _LoginPageState extends State<LoginPage> {
                                 padding: EdgeInsets.only(top: 8.0),
                                 child: Text(
                                   '1.请检查是否输入正确的手机号码\n2.检查手机是否停机\n3.请使用其他账号登录\n4.请联系官方客服：021-60554294',
-                                  style: TextStyleMediumContent,
+                                  style: TextStyleContent,
                                   textAlign: TextAlign.left,
                                 ),
                               ),
@@ -245,33 +242,32 @@ class _LoginPageState extends State<LoginPage> {
                     },
                     child: Text(
                       '收不到验证码？',
-                      style: TextStyle(color: Color_Text_Content),
+                      style: TextStyle(color: Color_U_Gray),
                     ),
                     style: TextButtonStyleNormal,
                   ),
                 ],
               ),
               Expanded(child: SizedBox()),
-              SizedBox(
-                width: 60,
-                height: 60,
-                child: IconButton(
-                  onPressed: () {
-                    MyRouter.pushNoParams(context, MyRouter.container);
-                  },
-                  icon: Image.asset('images/wechat.png'),
+              Offstage(
+                offstage: !wxLoginEnable,
+                child: SizedBox(
+                  width: 60,
+                  height: 60,
+                  child: IconButton(
+                    onPressed: () {
+                      MyRouter.pushNoParams(context, MyRouter.container);
+                    },
+                    icon: Image.asset('images/wechat.png'),
+                  ),
                 ),
-              ),
+              )
             ],
           ),
         )),
       ),
     );
   }
-
-  //阅读 用户协议 和 隐私政策
-  var rechText =
-      RichText(text: TextSpan(text: "阅读", style: TextStyleLittleContent));
 
   Padding buildTitle() {
     return Padding(
@@ -307,3 +303,4 @@ class _LoginPageState extends State<LoginPage> {
     _timer?.cancel();
   }
 }
+

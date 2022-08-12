@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:uzuo/common/style.dart';
 import 'package:uzuo/mine/mine.dart';
-import '../common/gloal.dart';
+import '../common/extension.dart';
 import '../home/home.dart';
 import '../message/message.dart';
 
@@ -89,7 +90,7 @@ class _ContainerPageState extends State<ContainerPage> {
         selectedFontSize: 11,
         unselectedFontSize: 11,
         currentIndex: _selectIndex,
-        fixedColor: Color_Text_Normal,
+        fixedColor: Color_U_Black,
         type: BottomNavigationBarType.fixed,
       ),
     );

@@ -1,23 +1,45 @@
-import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../common/style.dart';
+import 'package:uzuo/account/account.dart';
+import 'package:uzuo/mine/data_mine.dart';
+import 'package:uzuo/mine/v_mine_view.dart';
 
-class MinePage extends StatelessWidget {
-  const MinePage({super.key});
+
+class MinePage extends StatefulWidget {
+  List<MineModule> datas = ModuleModel.data(AccountType.designer);
+
+  @override
+  State<StatefulWidget> createState() => _MinePageState();
+}
+
+class _MinePageState extends State<MinePage> {
+
+
+  @override
+  void initState(){
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: SafeArea(
-        key: this.key,
-        child: Container(
-            margin: EdgeInsets.fromLTRB(16, 88, 16, 0),
-            child: SizedBox()
-        ),
+        child: CustomScrollView(
+          physics: BouncingScrollPhysics(),
+          reverse: false,
+          slivers: [
+            SliverToBoxAdapter(
+              child: MineHeader(),
+            ),
+            SliverList(delegate: SliverChildBuilderDelegate((content, index){
+                return MineItemView(model: widget.datas[index].value());
+            }, childCount: widget.datas.length)),
+          ],
+        )
       ),
     );
   }
 }
+
+
 

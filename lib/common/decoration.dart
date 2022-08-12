@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uzuo/common/style.dart';
 
-import 'gloal.dart';
 import 'package:flutter/widgets.dart';
 
 /**
