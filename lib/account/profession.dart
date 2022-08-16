@@ -1,7 +1,5 @@
-import 'dart:async';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../common/style.dart';
+import 'package:uzuo/utils/style.dart';
 
 class ProfessionWidget extends StatelessWidget {
   const ProfessionWidget({super.key});

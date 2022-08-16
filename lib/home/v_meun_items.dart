@@ -1,9 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:uzuo/common/style.dart';
+import 'package:uzuo/utils/style.dart';
 
 class ItemView extends StatelessWidget {
+  const ItemView({super.key});
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:uzuo/common/style.dart';
+import 'package:uzuo/utils/style.dart';
 
 class SlogenView extends StatelessWidget {
+  const SlogenView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return _build(context);

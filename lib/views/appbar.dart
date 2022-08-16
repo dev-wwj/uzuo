@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:uzuo/common/style.dart';
+import 'package:uzuo/utils/style.dart';
 
 AppBar commonAppBar(String title, List<Widget>? actions) {
   return AppBar(

@@ -1,9 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:uzuo/common/decoration.dart';
-import 'package:uzuo/common/style.dart';
+import 'package:uzuo/common/image_preview.dart';
 import 'package:uzuo/mine/pages/v_image_picker.dart';
+import 'package:uzuo/utils/decoration.dart';
+import 'package:uzuo/utils/style.dart';
 import 'package:uzuo/views/appbar.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -37,7 +36,8 @@ class _EditBodyState extends State<_EditBody> {
   final _titelController = TextEditingController();
   final _contentController = TextEditingController();
 
-  List<XFile>? _imageFileList;
+  final List<GalleryItem> _galleryItems = [];
+
   final _picker = ImagePicker();
 
   String? title;
@@ -46,7 +46,6 @@ class _EditBodyState extends State<_EditBody> {
   void initState() {
     _titelController.addListener(() {
       title = _titelController.text;
-      print(title);
     });
     super.initState();
   }
@@ -60,7 +59,6 @@ class _EditBodyState extends State<_EditBody> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return CustomScrollView(
       physics: const BouncingScrollPhysics(),
       slivers: [
@@ -112,7 +110,7 @@ class _EditBodyState extends State<_EditBody> {
           sliver: SliverGrid(
             delegate:
                 SliverChildBuilderDelegate((BuildContext context, int index) {
-              if (index == (_imageFileList != null ? _imageFileList!.length : 0)) {
+              if (index == _galleryItems.length) {
                 return AddWidget(
                   onTap: () {
                     permissionHander(context, (bool auth) {
@@ -126,12 +124,14 @@ class _EditBodyState extends State<_EditBody> {
                   },
                 );
               } else {
-                return Semantics(
-                  label: 'title',
-                  child: Image.file(File(_imageFileList![index].path), fit: BoxFit.cover,),
+                return ImagePicked(
+                  gallery: _galleryItems[index],
+                  onTap: (view) {
+                    _previewStart(view.gallery);
+                  },
                 );
               }
-            }, childCount: _imageFileList != null ? _imageFileList!.length + 1 : 1),
+            }, childCount: _galleryItems.length + 1),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 4,
                 crossAxisSpacing: 5,
@@ -152,28 +152,15 @@ class _EditBodyState extends State<_EditBody> {
     }
   }
 
-  Future<void> retrieveLostData() async {
-    final LostDataResponse response = await _picker.retrieveLostData();
-    if (response.isEmpty){
-      return;
-    }
-    if (response.file != null) {
-      setState((){
-        if (response.file == null) {
-
-        }else {
-          _imageFileList = response.files;
-        }
-      });
-    }
-  }
-
   Future<void> pickerImages(BuildContext context) async {
     try {
-      // final XFile? file =  await _picker.pickImage(source: ImageSource.gallery);
-      final List<XFile>? pickedFiles = await _picker.pickMultiImage();
+      final List<XFile>? pickedFiles =
+          await _picker.pickMultiImage();
       setState(() {
-        _imageFileList = pickedFiles;
+        pickedFiles?.forEach((element) {
+          GalleryItem item = GalleryItem(type: GalleryType.XFile, xFile: element);
+          _galleryItems.add(item);
+        });
       });
     } catch (e) {
       setState(() {
@@ -200,19 +187,33 @@ class _EditBodyState extends State<_EditBody> {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                child: Text('取消', style: TextStyleHint),
-                style: CancleButtonStyle,
-              ),
-              TextButton(
-                onPressed: () {},
+                style: SureButtonStyle,
                 child: Text(
                   '确定',
                   style: TextStyleTitle,
                 ),
-                style: SureButtonStyle,
               ),
             ],
           );
         });
+  }
+
+  // 预览图片
+  void _previewStart(GalleryItem allery) async {
+    int currentIndex = _galleryItems.indexOf(allery) ?? 0;
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ImagePreview(
+            galleryItems: _galleryItems,
+            initialIndex: currentIndex,
+            scrollDirection: Axis.horizontal,
+            editerExplain: true,
+            editerComplete: (bool success){
+              setState(() {
+              });
+            },
+          ),
+        ));
   }
 }

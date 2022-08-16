@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		IU12ggnq+Gum+UVyNOWMsSdoA3s=
+		NMd+D8NDjoXBHYdo5PyQfioQ8Mk=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -158,19 +158,23 @@
 		</data>
 		<key>flutter_assets/isolate_snapshot_data</key>
 		<data>
-		R8t+x9XBrUa8sB1GUR3eCv30Zps=
+		AnVKbziD7sTNKUt0U2ju/gGfhQA=
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		0FayHEqoIHu/ahPGAuMGBDSg7/4=
+		bRGBcbOSnV3E0ylITdNzCQTI6fw=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
 		P7bb/oR3EhwqCIH1M6LyTuBIWYU=
 		</data>
+		<key>flutter_assets/shaders/ink_sparkle.frag</key>
+		<data>
+		Dz3mfVx0dprYl7Aa1l4NSnpi1SU=
+		</data>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
-		svMbLaZxxwZfWzego4N5XtFC5zQ=
+		h8pEgB2abbws6A/J7VE0iurKhow=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -193,7 +197,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			QXoNhmQgfdDOvKRD8e6Af0mi8YfA+HuBjyZH/B5lhGc=
+			zcbzUFFo6CFIesjt9s8zQBhji06iUlMUhF5cr4QoJsE=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -438,14 +442,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IOG/uUg7wSbLPl7zG1BqL4vZnYQTsm58gjLEH9+IAA4=
+			fOP+ZOc+DW1KKJw8CMGlBRFFu9zGfoCyZ36opBMNZ0k=
 			</data>
 		</dict>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ioa4cb+xe/MSEBMOf0QrxmVIGphd+MA2ZK7t42Qnpy4=
+			/ZmDv9N9B2sFRjesAR2AXa7PzX5JFhAHgeIf3oYfP7o=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -455,11 +459,18 @@
 			x6NX+tjyECiQtyzbbjyY8U2zoZ7GDbJtE+T+k/dzgI0=
 			</data>
 		</dict>
+		<key>flutter_assets/shaders/ink_sparkle.frag</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			hV9yM1usPHsgWw+u25juaaARJLoE4QKY03VxK8cAZ7c=
+			</data>
+		</dict>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+1kl6HQCQA9+W1I2RiVVuP7qKbF3Lhs9oAPQpyf+jpo=
+			nfs3sjv7oinwH9C9t8WvFHN0xSlF9POWHw5G1/7TY2A=
 			</data>
 		</dict>
 	</dict>

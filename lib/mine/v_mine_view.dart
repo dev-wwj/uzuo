@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:uzuo/common/decoration.dart';
-import 'package:uzuo/common/style.dart';
 import 'package:uzuo/mine/data_mine.dart';
+import 'package:uzuo/utils/decoration.dart';
+import 'package:uzuo/utils/style.dart';
 
 class MineHeader extends StatelessWidget {
   @override

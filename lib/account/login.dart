@@ -2,11 +2,11 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uzuo/account/login_wechat.dart';
-import '../common/style.dart';
-import '../common/regexp.dart';
-import '../common/decoration.dart';
+import 'package:uzuo/utils/decoration.dart';
+import 'package:uzuo/utils/extension.dart';
+import 'package:uzuo/utils/regexp.dart';
+import 'package:uzuo/utils/style.dart';
 import '../account/profession.dart';
-import '../common/extension.dart';
 import '../router.dart';
 
 class LoginPage extends StatefulWidget {

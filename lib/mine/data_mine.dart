@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:uzuo/account/account.dart';
-import 'package:uzuo/common/style.dart';
 import 'package:uzuo/router.dart';
 
 class ModuleModel {

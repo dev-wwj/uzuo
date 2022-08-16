@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:uzuo/common/style.dart';
 import 'package:uzuo/home/v_meun_items.dart';
 import 'package:uzuo/home/searchbar.dart';
-import 'package:uzuo/common/extension.dart';
 import 'package:uzuo/home/v_product_card.dart';
 import 'package:uzuo/home/v_slogen.dart';
+import 'package:uzuo/utils/extension.dart';
+import 'package:uzuo/utils/style.dart';
 import 'package:waterfall_flow/waterfall_flow.dart';
 
 class HomePage extends StatelessWidget {

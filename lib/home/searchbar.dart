@@ -1,8 +1,6 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-import 'package:uzuo/common/decoration.dart';
-import 'package:uzuo/common/style.dart';
+import 'package:uzuo/utils/decoration.dart';
+import 'package:uzuo/utils/style.dart';
 
 class SearchBar extends StatefulWidget  {
 

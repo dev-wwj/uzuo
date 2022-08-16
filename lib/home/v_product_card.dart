@@ -1,7 +1,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:uzuo/common/style.dart';
+import 'package:uzuo/utils/extension.dart';
+import 'package:uzuo/utils/style.dart';
 
 class ProductCard extends StatelessWidget {
   final double rate = (1 + Random.secure().nextInt(100) / 300);

@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:uzuo/common/style.dart';
+import 'package:uzuo/utils/style.dart';
 import 'package:uzuo/mine/mine.dart';
-import '../common/extension.dart';
 import '../home/home.dart';
 import '../message/message.dart';
 
