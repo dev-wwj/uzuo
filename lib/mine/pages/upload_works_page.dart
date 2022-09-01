@@ -1,6 +1,9 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
 import 'package:uzuo/common/image_preview.dart';
-import 'package:uzuo/mine/pages/v_image_picker.dart';
+import 'package:uzuo/mine/pages/view/v_image_picker.dart';
+import 'package:uzuo/router.dart';
 import 'package:uzuo/utils/decoration.dart';
 import 'package:uzuo/utils/style.dart';
 import 'package:uzuo/views/appbar.dart';
@@ -16,7 +19,9 @@ class UploadWorks extends StatelessWidget {
       appBar: commonAppBar("上传作品", [
         TextButton(
             style: AppBarButtonStyle,
-            onPressed: () {},
+            onPressed: () {
+              MyRouter.pushNoParams(context, MyRouter.worksInfo);
+            },
             child: Text(
               "下一步",
               style: TextStyleTitleBold,
@@ -154,11 +159,11 @@ class _EditBodyState extends State<_EditBody> {
 
   Future<void> pickerImages(BuildContext context) async {
     try {
-      final List<XFile>? pickedFiles =
-          await _picker.pickMultiImage();
+      final List<XFile>? pickedFiles = await _picker.pickMultiImage();
       setState(() {
         pickedFiles?.forEach((element) {
-          GalleryItem item = GalleryItem(type: GalleryType.XFile, xFile: element);
+          GalleryItem item =
+              GalleryItem(type: GalleryType.XFile, xFile: element);
           _galleryItems.add(item);
         });
       });
@@ -209,9 +214,8 @@ class _EditBodyState extends State<_EditBody> {
             initialIndex: currentIndex,
             scrollDirection: Axis.horizontal,
             editerExplain: true,
-            editerComplete: (bool success){
-              setState(() {
-              });
+            editerComplete: (bool success) {
+              setState(() {});
             },
           ),
         ));

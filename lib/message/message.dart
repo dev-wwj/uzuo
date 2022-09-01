@@ -12,11 +12,8 @@ class MessagePage extends StatelessWidget {
       body: SafeArea(
         key: this.key,
         child: Container(
-          margin: EdgeInsets.fromLTRB(16, 88, 16, 0),
-          child: SizedBox()
-        ),
+            margin: EdgeInsets.fromLTRB(16, 88, 16, 0), child: SizedBox()),
       ),
     );
   }
 }
-

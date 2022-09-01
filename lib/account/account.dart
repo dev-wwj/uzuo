@@ -1,4 +1,3 @@
-
 enum AccountType {
   custom,
   designer,

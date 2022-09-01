@@ -12,9 +12,7 @@ class SlogenView extends StatelessWidget {
   Widget _build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Color(0xFFF3F3F3),
-          borderRadius: BorderRadius.circular(8)
-      ),
+          color: Color(0xFFF3F3F3), borderRadius: BorderRadius.circular(8)),
       padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
       child: Row(
         children: [

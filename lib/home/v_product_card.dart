@@ -66,7 +66,9 @@ class _UserCard extends StatelessWidget {
           backgroundColor: Color(0xFFEEEEEE),
           backgroundImage: AssetImage('avatar_placeholder'.locImage()),
         ),
-        SizedBox(width: 5,),
+        SizedBox(
+          width: 5,
+        ),
         Text(
           'name',
           style: TextStyleLittleTitle,

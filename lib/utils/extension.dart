@@ -27,6 +27,6 @@ extension SimpleContext on BuildContext {
 
 extension MString on String {
   String locImage() {
-    return 'images/' + this + '.png';
+    return 'images/${this}.png';
   }
 }

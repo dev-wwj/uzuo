@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uzuo/home/home.dart';
+import 'package:uzuo/mine/pages/edit_works_info_page.dart';
 import 'package:uzuo/mine/pages/upload_works_page.dart';
 import 'package:uzuo/pages/container_page.dart';
 import 'pages/web_page.dart';
@@ -10,17 +10,22 @@ class MyRouter {
   static const message = 'app://MessagePage';
 
   static const uploadWorks = 'app://mine/upload';
-
+  static const worksInfo = 'app://mine/edit';
 
   Widget _getPage(String url, dynamic params) {
     if (url.startsWith('https://') || url.startsWith('http://')) {
-      return WebViewPage(url, params: params,);
+      return WebViewPage(
+        url,
+        params: params,
+      );
     } else {
       switch (url) {
         case container:
           return ContainerPage();
-        case  uploadWorks:
-          return UploadWorks();
+        case uploadWorks:
+          return const UploadWorks();
+        case worksInfo:
+          return const EditWorkInfoPage();
       }
     }
     return ErrorPage();
@@ -37,5 +42,4 @@ class MyRouter {
       return _getPage(url, params);
     }));
   }
-  
 }

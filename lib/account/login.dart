@@ -51,12 +51,12 @@ class LoginPageState extends State<LoginPage> {
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 60,
               ),
               Container(
                 width: context.width(),
-                child: Text(
+                child: const Text(
                   "登录后更精彩",
                   style: TextStyle(
                     fontSize: 32,
@@ -64,7 +64,7 @@ class LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               Container(
@@ -72,8 +72,8 @@ class LoginPageState extends State<LoginPage> {
                 child: TextFormField(
                   autovalidateMode: AutovalidateMode.always,
                   style: TextStyleTitle,
-                  decoration: WInputDecoration.inputDecoration(
-                      "请输入手机号", TextStyleHint),
+                  decoration:
+                      WInputDecoration.inputDecoration("请输入手机号", TextStyleHint),
                   keyboardType: TextInputType.phone,
                   onChanged: (value) {
                     _phone = value;
@@ -82,7 +82,7 @@ class LoginPageState extends State<LoginPage> {
                   },
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Container(
@@ -164,8 +164,9 @@ class LoginPageState extends State<LoginPage> {
                                 : null),
                         child: Text(
                           _verifyStr,
-                          style:
-                              _codeEnable ? TextStyleMediumTitle : TextStyleMediumContent,
+                          style: _codeEnable
+                              ? TextStylePettyTitle
+                              : TextStyleMediumContent,
                         ),
                       ),
                     ),
@@ -203,7 +204,7 @@ class LoginPageState extends State<LoginPage> {
               ),
               Row(
                 children: [
-                  Expanded(child: SizedBox()),
+                  const Expanded(child: SizedBox()),
                   TextButton(
                     onPressed: () {
                       showCupertinoDialog(
@@ -215,7 +216,7 @@ class LoginPageState extends State<LoginPage> {
                                 style: TextStyleLarge,
                               ),
                               content: Container(
-                                padding: EdgeInsets.only(top: 8.0),
+                                padding: const EdgeInsets.only(top: 8.0),
                                 child: Text(
                                   '1.请检查是否输入正确的手机号码\n2.检查手机是否停机\n3.请使用其他账号登录\n4.请联系官方客服：021-60554294',
                                   style: TextStyleContent,
@@ -240,11 +241,11 @@ class LoginPageState extends State<LoginPage> {
                             );
                           });
                     },
+                    style: TextButtonStyleNormal,
                     child: Text(
                       '收不到验证码？',
                       style: TextStyle(color: Color_U_Gray),
                     ),
-                    style: TextButtonStyleNormal,
                   ),
                 ],
               ),
@@ -303,4 +304,3 @@ class LoginPageState extends State<LoginPage> {
     _timer?.cancel();
   }
 }
-
