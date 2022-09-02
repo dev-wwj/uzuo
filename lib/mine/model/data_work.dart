@@ -1,4 +1,4 @@
-// ignore_for_file: depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages, unnecessary_question_mark
 
 import 'package:flutter/material.dart';
 import 'package:uzuo/mine/pages/tags_picker_page.dart';
@@ -120,21 +120,35 @@ extension ActionWorkModule on WorkModule {
   }
 }
 
+class WorkClassify {
+
+  WorkClassify({this.category, this.detail});
+
+  String? category;
+  String? detail;
+
+  @override
+  String toString() {
+    // TODO: implement toString
+    return '$category-$detail';
+  }
+}
+
 class WorkInfoModel extends ChangeNotifier {
   String? _industry;
   String? _uses;
-
   String? _format;
-
   String? _colorMode;
 
-  void set(String value, WorkModule module) {
+  WorkClassify? _classify;
+
+  void set(dynamic value, WorkModule module) {
     switch (module) {
       case WorkModule.cover:
         // TODO: Handle this case.
         break;
       case WorkModule.classify:
-        // TODO: Handle this case.
+        _classify = value;
         break;
       case WorkModule.industry:
         _industry = value;
@@ -173,13 +187,11 @@ class WorkInfoModel extends ChangeNotifier {
         // TODO: Handle this case.
         break;
       case WorkModule.classify:
-        // TODO: Handle this case.
-        break;
+        return _classify != null ? _classify.toString() : '';
       case WorkModule.industry:
         return _industry;
       case WorkModule.uses:
         return _uses;
-
       case WorkModule.format:
         return _format;
       case WorkModule.colorMode:

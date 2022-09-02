@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:uzuo/common/image_preview.dart';
-import 'package:uzuo/utils/extension.dart';
 import 'package:uzuo/utils/style.dart';
 
 class AddWidget extends StatelessWidget {
@@ -15,8 +14,7 @@ class AddWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        // border: Border(bottom: BorderSide(width: 1, color: Color_Border_Line)));
-        decoration: BoxDecoration(border: Border.all(color: Color(0xFFBFBFBF))),
+        decoration: BoxDecoration(border: Border.all(color: const Color(0xFFBFBFBF))),
         alignment: Alignment.center,
         child: Image.asset('icon_add'.locImage(), width: 25),
       ),

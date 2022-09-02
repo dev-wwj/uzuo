@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:uzuo/mine/model/data_work.dart';
 import 'package:uzuo/mine/model/date_work_ex.dart';
+import 'package:uzuo/mine/pages/work_pricing_page.dart';
 import 'package:uzuo/utils/style.dart';
 import 'package:uzuo/views/appbar.dart';
 import 'package:provider/provider.dart';
@@ -17,8 +18,13 @@ class EditWorkInfoPage extends StatelessWidget {
         appBar: commonAppBar("作品信息", [
           TextButton(
               style: AppBarButtonStyle,
-              onPressed: () {},
-              child: Text(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const WorkPricingPage()));
+              },
+              child: const Text(
                 "下一步",
                 style: TextStyleTitleBold,
               ))

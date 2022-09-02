@@ -34,7 +34,7 @@ class MyRouter {
   MyRouter.pushNoParams(BuildContext context, String url) {
     Navigator.push(context, MaterialPageRoute(builder: (context) {
       return _getPage(url, null);
-    }));
+    },settings: RouteSettings(name: url) ));
   }
 
   MyRouter.push(BuildContext context, String url, dynamic params) {

@@ -47,7 +47,7 @@ class LoginPageState extends State<LoginPage> {
             child: Container(
           height: context.safeHeight(),
           width: context.width(),
-          padding: EdgeInsets.symmetric(horizontal: 15.0),
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -144,7 +144,7 @@ class LoginPageState extends State<LoginPage> {
                         width: 98.0,
                         height: 35,
                         alignment: Alignment.center,
-                        padding: EdgeInsets.symmetric(horizontal: 13.0),
+                        padding: const EdgeInsets.symmetric(horizontal: 13.0),
                         decoration: BoxDecoration(
                             border: Border.all(
                                 width: 1.0,
@@ -152,10 +152,10 @@ class LoginPageState extends State<LoginPage> {
                                     ? Color_U_Black
                                     : Color_Text_Unavailable),
                             borderRadius:
-                                BorderRadius.all(Radius.circular(5.0)),
+                                const BorderRadius.all(Radius.circular(5.0)),
                             boxShadow: _showShadow
                                 ? [
-                                    BoxShadow(
+                                    const BoxShadow(
                                         color: Color_Shadow_Gray,
                                         offset: Offset(2, 2),
                                         blurRadius: 5,
@@ -173,7 +173,7 @@ class LoginPageState extends State<LoginPage> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               Container(
@@ -189,13 +189,13 @@ class LoginPageState extends State<LoginPage> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => ProfessionWidget()));
+                                builder: (context) => const ProfessionWidget()));
                       },
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(4)),
                       ),
-                      color: Color(0xFF0F0F0F),
-                      child: Text(
+                      color: const Color(0xFF0F0F0F),
+                      child: const Text(
                         '登录',
                         style:
                             TextStyle(color: Color(0xFFFFFFFF), fontSize: 16),
@@ -211,13 +211,13 @@ class LoginPageState extends State<LoginPage> {
                           context: context,
                           builder: (context) {
                             return CupertinoAlertDialog(
-                              title: Text(
+                              title: const Text(
                                 '收不到验证码？',
                                 style: TextStyleLarge,
                               ),
                               content: Container(
                                 padding: const EdgeInsets.only(top: 8.0),
-                                child: Text(
+                                child: const Text(
                                   '1.请检查是否输入正确的手机号码\n2.检查手机是否停机\n3.请使用其他账号登录\n4.请联系官方客服：021-60554294',
                                   style: TextStyleContent,
                                   textAlign: TextAlign.left,
@@ -231,7 +231,7 @@ class LoginPageState extends State<LoginPage> {
                                       Navigator.pop(context);
                                     },
                                     style: TextButtonStyleNormal,
-                                    child: Text(
+                                    child: const Text(
                                       '我知道了',
                                       style: TextStyleTitleBold,
                                     ),
@@ -242,14 +242,14 @@ class LoginPageState extends State<LoginPage> {
                           });
                     },
                     style: TextButtonStyleNormal,
-                    child: Text(
+                    child: const Text(
                       '收不到验证码？',
                       style: TextStyle(color: Color_U_Gray),
                     ),
                   ),
                 ],
               ),
-              Expanded(child: SizedBox()),
+              const Expanded(child: SizedBox()),
               Offstage(
                 offstage: !wxLoginEnable,
                 child: SizedBox(
@@ -271,7 +271,7 @@ class LoginPageState extends State<LoginPage> {
   }
 
   Padding buildTitle() {
-    return Padding(
+    return const Padding(
       padding: EdgeInsets.all(8.0),
       child: Text(
         'Login',
@@ -282,7 +282,7 @@ class LoginPageState extends State<LoginPage> {
   }
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_seconds == 0) {
         _cancelTimer();
         _seconds = widget.countdown;

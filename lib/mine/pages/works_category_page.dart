@@ -1,6 +1,11 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:flutter/material.dart';
+import 'package:uzuo/mine/model/data_work.dart';
+import 'package:uzuo/utils/decoration.dart';
 import 'package:uzuo/utils/style.dart';
 import 'package:uzuo/views/appbar.dart';
+import 'package:provider/provider.dart';
 
 class WorksCategoryPage extends StatelessWidget {
   const WorksCategoryPage({super.key});
@@ -202,10 +207,22 @@ class _TagsPickerState extends State<_TagsPicker> {
               },
               body: Column(
                 children: elem.secondary?.map((e) {
-                      return ListTile(
-                        title: Text(
-                          e,
-                          style: TextStyleContent,
+                      return InkWell(
+                        onTap: () {
+                          context
+                              .read<WorkInfoModel>()
+                              .set( WorkClassify(category: elem.name,detail: e), WorkModule.classify);
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(horizontal: 15.5),
+                          alignment: Alignment.centerLeft,
+                          height: 63,
+                          decoration: BottomLineDecoration,
+                          child: Text(
+                            e,
+                            style: TextStyleContent,
+                          ),
                         ),
                       );
                     }).toList() ??
