@@ -9,10 +9,12 @@ import 'package:flutter/widgets.dart';
  * BoxDecoration
  */
 // 下划线
-final BoxDecoration BottomLineDecoration = BoxDecoration(
+// ignore: constant_identifier_names
+const BoxDecoration BottomLineDecoration = BoxDecoration(
     border: Border(bottom: BorderSide(width: 1, color: Color_Border)));
 
-final BoxDecoration TopLineDecoration = BoxDecoration(
+// ignore: constant_identifier_names
+const BoxDecoration TopLineDecoration = BoxDecoration(
     border: Border(top: BorderSide(width: 0.5, color: Color_Border)));
 
 final BoxDecoration AllBorderDecoration =
